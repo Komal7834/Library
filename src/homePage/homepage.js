@@ -21,7 +21,7 @@ const HomePage = () => {
     <div className="home-container">
       <div className="login-box">
         <h1 className="title">Library Management System</h1>
-        <p className="subtitle">Login as:</p>
+        <p className="csubtitle">Login as:</p>
 
         <select
           className="role-select"

@@ -1,36 +1,33 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./landingpage.css"; // Import CSS file
 
-
 const AdminLandingpage = () => {
-   const navigate = useNavigate();
-  const [role, setRole] = useState(""); // Default role 
-  
-  const handlepage = () => {  
-    if (role === "Add Librarian") {
-      navigate("/admin-dashboard");
-    } else if(role === "View Librarian"){
-      navigate("/librarian-dashboard");
-    }else if(role=== "Delete Librarian")
-        { navigate("/users-dashboard")}
-        else(role=== "Logout")
-        { navigate("../homepage/homepage")}
-  };
-  
-  return (
-    
+  const navigate = useNavigate();
 
-    <div className="landing-container">
-      <div className="landing-box">
-        <h1 className="title">Admin Section</h1>
-       
-     <button onClick={handlepage} className="login-button">Add Librarian</button>
-     <button onClick={handlepage} className="login-button">View Librarian</button>    
-     <button onClick={handlepage} className="login-button">Delete Librarian</button>
-        <button onClick={handlepage} className="login-button">
-          Logout
-        </button>
+  // Fix the navigation function to use the path passed as argument
+  const handleNavigation = (path) => {
+    navigate(path);  // Use the passed path
+  };
+
+  return (
+    <div className="home-container1">
+      <div className="landing-box1">
+        <h1 className="subtitle1">Manage Librarians</h1>
+
+        <div className="button-group">
+          <button onClick={() => handleNavigation("/add-librarian")} className="action-button1">
+            Add Librarian
+          </button>
+          <button onClick={() => handleNavigation("/view-librarian")} className="action-button1">
+            View Librarian
+          </button>
+          <button onClick={() => handleNavigation("/delete-librarian")} className="action-button1">
+            Delete Librarian
+          </button>
+          <button onClick={() => handleNavigation("/homepage")} className="action-button1">
+            Back to Homepage
+          </button>
+        </div>
       </div>
     </div>
   );
