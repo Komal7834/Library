@@ -10,13 +10,17 @@ const Header = () => {
 return (
 <header class="header">
 <div class="logo-container">
+           <nav><a href="https://herosteels.com" target="_blank" rel="noopener noreferrer" >
             <img src="https://herosteels.in/images/logo.png" alt="Library Logo" class="logo"/>
+            </a> 
+            </nav>
             <div class="title1">
             
             </div>
         </div>
         
         <nav class="nav">
+        <div><button class="dropbtn" >Home</button></div>
             <div class="dropdown">
                 <button class="dropbtn">Books </button>
                 <div class="dropdown-content">

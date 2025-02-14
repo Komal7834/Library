@@ -1,0 +1,72 @@
+/* General container styling */
+.viewcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222; /* Dark background */
+    padding: 20px;
+}
+
+/* Main box styling */
+.view-box {
+    background: #ffd700; /* Gold Yellow */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.4); /* Golden Glow */
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Heading style */
+h1 {
+    font-size: 24px;
+    color: #111; /* Dark black */
+    margin-bottom: 15px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    height: max-content;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Table header */
+th {
+    background: #111; /* Black */
+    color: #ffd700; /* Yellow */
+    padding: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #ffd700;
+    text-transform: uppercase;
+}
+
+/* Table rows */
+td {
+    padding: 10px;
+    font-size: 16px;
+    color: #111;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Zebra striping for table rows */
+tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+tr:nth-child(odd) {
+    background: #fff;
+}
+
+/* Hover effect */
+tr:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transition: 0.3s;
+}

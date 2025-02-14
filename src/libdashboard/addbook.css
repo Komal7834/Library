@@ -1,0 +1,134 @@
+/* Full-page container with animated background */
+@keyframes floatingBooks {
+    0% { transform: translateY(0px); opacity: 0.3; }
+    50% { transform: translateY(-20px); opacity: 0.6; }
+    100% { transform: translateY(0px); opacity: 0.3; }
+}
+
+.home-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #34515c; /* Deep Black */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated book icons in the background */
+.home-5::before {
+    content: "📖 📚 📕 📗 📘 📙 📖 📚 📕 📗 📘 📙";
+    position: absolute;
+    font-size: 80px;
+    color: rgba(255, 215, 0, 0.2); /* Faint gold */
+    top: 10%;
+    left: 5%;
+    animation: floatingBooks 5s infinite ease-in-out;
+}
+.h-5 {
+    text-align: left;
+    font-size: medium;
+}
+.home-5::after {
+    content: "📖 📚 📕 📗 📘 📙📖 📚 📕 📗 📘 📙";
+    position: absolute;
+    font-size: 90px;
+    color: rgba(255, 215, 0, 0.2);
+    bottom: 10%;
+    right: 5%;
+    animation: floatingBooks 7s infinite ease-in-out;
+}
+
+/* Box containing form */
+.box-5 {
+    background: linear-gradient(145deg, #ffd700, #ffcc00); /* Luxurious Gold Gradient */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6);
+    text-align: center;
+    width: 500px;
+    height: 750px;
+    border: 2px solid #111;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+h1 {
+    font-size: 30px;
+    color: #111;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-5 {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    background: #111;
+    color: #ffd700;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Input Focus Effect */
+.input-5:focus {
+    background: #ffd700;
+    color: #111;
+    border: 2px solid #111;
+}
+
+/* Buttons */
+.logn-5 {
+    background: #111;
+    color: #ffd700;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Hover Effect */
+.logn-5:hover {
+    background: #ffd700;
+    color: #111;
+    box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Active Button Effect */
+.logn-5:active {
+    transform: scale(0.95);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 450px) {
+    .box-5 {
+        width: 90%;
+        padding: 30px;
+    }
+}

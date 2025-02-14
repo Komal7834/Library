@@ -1,0 +1,91 @@
+/* Full-page container */
+.ldashcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("/libimg.jpg"); /* Deep Black */
+    padding: 20px;
+}
+
+/* Dashboard Box */
+.dash-box {
+    background: linear-gradient(145deg, #ffd700, #ffcc00); /* Luxurious Gold Gradient */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6); /* Golden Glow */
+    text-align: center;
+    width: 450px;
+    height: 750px;
+    border: 2px solid #111;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+.sub1 {
+    font-size: 30px;
+    color: #111; /* Black */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* Button Group */
+.dashbutton {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Buttons */
+.button4 {
+    background: #111; /* Deep Black */
+    color: #ffd700; /* Gold */
+    padding: 19px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
+    width: 80%;
+    margin: auto;
+    
+}
+
+/* Hover Effect */
+.button4:hover {
+    background: #ffd700;
+    color: #111;
+    box-shadow: 0px 6px 15px rgba(201, 174, 26, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Active Button Effect */
+.button4:active {
+    transform: scale(0.95);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 450px) {
+    .dash-box {
+        width: 90%;
+        padding: 30px;
+    }
+}

@@ -1,44 +1,49 @@
 
-import "./viewlib.css";
+import "./viewissuebook.css";
 
 
-const ViewLibrarianPage = () => {
+const ViewBookPage = () => {
  
   return (
 
-   <div className="viewcontainer" >
-     <div className="view-box">
-          <div></div><h1>View Current Librarian Details </h1>
-         <table>
+   <div className="v-book-6" >
+     <div className="v-box-6">
+          <div></div><h1> Available Books Details :</h1>
+         <table className="table-6">
           <tr>
-             <th>Name:</th>
-             <th>Password:</th>
-             <th>Email:</th>
-             <th>Address:</th>
-             <th>Contact Number:</th>
+             <th> Book Number:</th>
+             <th>Book Name:</th>
+             <th>Author Name:</th>
+             <th>Publisher:</th>
+             <th>Quantity:</th>
+             <th>Issued Book:</th>
          </tr>
          <tr>
-         <td>A</td>
-         <td>123</td>
-         <td>abc@gmail.com</td>
-         <td>123,Ludhiana</td>
-         <td>1122334455</td>
+         <td>12</td>
+         <td>bkb</td>
+         <td>a jbbb</td>
+         <td>jbib</td>
+         <td>5</td>
+         <td></td>
+         </tr>
+         <tr> 
+          <td>14</td>
+          <td>vvm5</td>
+          <td>bigv</td>
+          <td>bib</td>
+          <td>6</td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
          </tr>
          <tr>
-          <td>B</td>
-          <td>345</td>
-          <td>bcd@gmail.com</td>
-          <td>345,Ludhiana</td>
-          <td>6677889911</td>
-          </tr>
-         <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-         </tr>
-         <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -51,22 +56,10 @@ const ViewLibrarianPage = () => {
           <td></td>
           <td></td>
           <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
           <td></td>
           </tr>
          <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -79,12 +72,6 @@ const ViewLibrarianPage = () => {
           <td></td>
           <td></td>
           <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
           <td></td>
           </tr>
          <tr>
@@ -93,6 +80,15 @@ const ViewLibrarianPage = () => {
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           </tr>
          <tr>
           <td></td>
@@ -100,8 +96,26 @@ const ViewLibrarianPage = () => {
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
           </tr>
          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -115,4 +129,4 @@ const ViewLibrarianPage = () => {
 
 
 };
-export default ViewLibrarianPage;
+export default ViewBookPage;

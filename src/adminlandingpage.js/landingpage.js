@@ -24,7 +24,7 @@ const AdminLandingpage = () => {
           <button onClick={() => handleNavigation("/delete-librarian")} className="action-button1">
             Delete Librarian
           </button>
-          <button onClick={() => handleNavigation("/homepage")} className="action-button1">
+          <button onClick={() => handleNavigation("/")} className="action-button1">
             Back to Homepage
           </button>
         </div>

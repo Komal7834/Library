@@ -1,81 +1,103 @@
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
-  
-  /* Centered Container */
-  .home-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background: url("/public/background.jpg");
-  }
-  
-  /* Login Box */
-  .login-box {
-    background: rgb(255, 230, 0);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 500px;
-  }
-  
-  /* Title */
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Subtitle */
-  .csubtitle {
-    font-size: 17px;
-    color: #666;
-    margin-bottom: 15px;
-  }
-  
-  /* Select Dropdown */
-  .role-select0 {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  /* Input Fields */
-  .input-field0 {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  /* Login Button */
-  .login-button {
-    width: 100%;
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .login-button0:hover {
-    background-color: #000000;
-  }
-  
+/* General Page Styling */
+.homepage {
+  background-color: #000; /* Black background */
+  color: #ffd700; /* Yellow text */
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Quote Slider */
+.slider-container {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.slide {
+  background: #ffd700;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
+
+.quote-box {
+  padding: 20px;
+  color: #000;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 1.4em;
+}
+
+.quote-author {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Login Box */
+.login-container {
+  background: #111;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.7);
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #ffd700;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+/* Input Fields */
+.input-field,
+.role-select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ffd700;
+  border-radius: 5px;
+  background: #000;
+  color: #ffd700;
+  font-size: 1em;
+}
+
+.input-field::placeholder {
+  color: #ffd700;
+}
+
+/* Login Button */
+.login-button {
+  background: #ffd700;
+  color: #000;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  background: #ffcc00;
+}

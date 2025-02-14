@@ -1,0 +1,148 @@
+/* Animation for an open book flipping */
+@keyframes flipBook {
+    0% { transform: rotateY(0deg); opacity: 0.3; }
+    50% { transform: rotateY(20deg); opacity: 0.6; }
+    100% { transform: rotateY(0deg); opacity: 0.3; }
+}
+
+/* Full-page container */
+.issue-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111; /* Deep Black */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated open book in the background */
+.issue-7::before {
+    content: "📖";
+    position: absolute;
+    font-size: 120px;
+    color: rgba(255, 215, 0, 0.3); /* Soft gold */
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flipBook 5s infinite ease-in-out;
+}
+
+.issue-7::after {
+    content: "📚";
+    position: absolute;
+    font-size: 100px;
+    color: rgba(255, 215, 0, 0.2);
+    bottom: 10%;
+    right: 10%;
+    animation: flipBook 6s infinite ease-in-out;
+}
+
+/* Box containing issue book form */
+.issuebox-7 {
+    background: linear-gradient(145deg, #ffd700, #ffcc00); /* Luxurious Gold */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6);
+    text-align: center;
+    width: 80%;
+    max-width: 450px;
+    height: 750px;
+    border: 2px solid #111;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title */
+h1 {
+    font-size: 26px;
+    color: #111;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: red;
+
+}
+/* Input field styles */
+.input-field7 {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    background: #111;
+    color: #ffd700;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+/* Input field focus effect */
+.input-field7:focus {
+    outline: none;
+    border-color: #ffcc00;
+    background: rgba(255, 215, 0, 0.2);
+}
+
+/* Stylish labels */
+.h-7 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #111;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.button7 {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.button7:hover {
+    background: #ffd700;
+    color: #111;
+    transform: scale(1.05);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .issuebox-7 {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .input-field7 {
+        font-size: 14px;
+    }
+
+    .button7 {
+        font-size: 14px;
+    }
+}

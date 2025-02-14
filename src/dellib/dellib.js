@@ -1,23 +1,22 @@
 
-import "./addlibrarian.css";
-
 import { useNavigate } from "react-router-dom";
+import "./dellib.css";
 
-const AddLibrarianPage = () => {
- 
+
+const DeleteLibrarianPage = () => {
  
  const navigate = useNavigate();
   
-const handleLogin = (path) => {
-  navigate("/admin-dashboard");
-    
+const handleLogin = () => {
+    navigate("/admin-dashboard");
+
 };
 
   return (
 
-   <div className="home-2" >
-     <div className="landing-box2">
-          <div></div><h1>Add Librarian Form </h1>
+   <div className="homedel" >
+     <div className="deltbox">
+          <div></div><h1>Delete Librarian Form </h1>
           Name:
           <input type="text" placeholder="Enter Name" className="input-field" /> 
           Password:
@@ -30,7 +29,7 @@ const handleLogin = (path) => {
           <input type="text" placeholder="Enter Your City" className="input-field" />
           Contact Number:
           <input type="text" placeholder="Enter Your Number" className="input-field" />
-          <button onClick={handleLogin} className="login-button3" >Save</button>
+          <button onClick={handleLogin} className="login-button3" >Delete</button>
           <button onClick={handleLogin} className="login-button3" >Cancel</button>
           
         </div>
@@ -39,4 +38,4 @@ const handleLogin = (path) => {
 
 
 };
-export default AddLibrarianPage;
+export default DeleteLibrarianPage;
