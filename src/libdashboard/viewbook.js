@@ -1,15 +1,21 @@
 
 import "./viewbook.css";
-
+import { useNavigate } from "react-router-dom";
 
 const ViewBookPage = () => {
- 
+ const navigate = useNavigate();
+   const handlenavigation = (path) => {
+    navigate(path);
+   };
   return (
 
    <div className="v-book-6" >
      <div className="v-box-6">
-          <div></div><h1> Available Books Details :</h1>
-         <table className="table-6">
+          <div></div><h1 className="head6"> Available Books Details :</h1>
+           
+           
+           <div><button class="drop6btn6" onClick={() => handlenavigation("/librarian-dashboard")} >Back</button></div>        
+            <table className="table-6">
           <tr>
              <th> Book Number:</th>
              <th>Book Name:</th>

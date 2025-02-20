@@ -1,4 +1,4 @@
-/* Full-page container with animated background */
+/* Background with floating book icons */
 @keyframes floatingBooks {
     0% { transform: translateY(0px); opacity: 0.3; }
     50% { transform: translateY(-20px); opacity: 0.6; }
@@ -10,68 +10,76 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #34515c; /* Deep Black */
+    background-color: #222; /* Deep Black */
     position: relative;
     overflow: hidden;
 }
 
 /* Animated book icons in the background */
 .home-5::before {
-    content: "📖 📚 📕 📗 📘 📙 📖 📚 📕 📗 📘 📙";
+    content: "📖 📚 📕 📗 📘 📙";
     position: absolute;
-    font-size: 80px;
+    font-size: 70px;
     color: rgba(255, 215, 0, 0.2); /* Faint gold */
     top: 10%;
-    left: 5%;
+    left: 10%;
     animation: floatingBooks 5s infinite ease-in-out;
 }
-.h-5 {
-    text-align: left;
-    font-size: medium;
-}
+
 .home-5::after {
-    content: "📖 📚 📕 📗 📘 📙📖 📚 📕 📗 📘 📙";
+    content: "📖 📚 📕 📗 📘 📙";
     position: absolute;
-    font-size: 90px;
-    color: rgba(255, 215, 0, 0.2);
+    font-size: 80px;
+    color: rgba(255, 215, 0, 2);
     bottom: 10%;
-    right: 5%;
+    right: 10%;
     animation: floatingBooks 7s infinite ease-in-out;
 }
 
-/* Box containing form */
+/* Book details box */
 .box-5 {
     background: linear-gradient(145deg, #ffd700, #ffcc00); /* Luxurious Gold Gradient */
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(255, 215, 0, 0.6);
     text-align: center;
-    width: 500px;
-    height: 750px;
+    width: 420px;
     border: 2px solid #111;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.7s ease-in-out;
 }
 
 /* Title */
 h1 {
-    font-size: 30px;
+    font-size: 26px;
     color: #111;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #111;
+    padding-bottom: 10px;
+}
+
+/* Input labels */
+.h-5 {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #111;
+    margin: 10px 0 5px;
 }
 
 /* Input Fields */
 .input-5 {
     width: 100%;
     padding: 10px;
-    margin: 8px 0;
+    margin-bottom: 12px;
     border: 2px solid #ffd700;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #111;
     color: #ffd700;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
     transition: 0.3s;
 }
@@ -88,15 +96,15 @@ h1 {
     background: #111;
     color: #ffd700;
     padding: 12px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     border: 2px solid #ffd700;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
-    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
-    margin-top: 15px;
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.4);
+    margin-top: 10px;
     width: 100%;
 }
 
@@ -110,7 +118,7 @@ h1 {
 
 /* Active Button Effect */
 .logn-5:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 }
 
 /* Fade In Animation */
@@ -126,9 +134,22 @@ h1 {
 }
 
 /* Responsive Design */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     .box-5 {
         width: 90%;
         padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .input-5 {
+        font-size: 14px;
+    }
+
+    .logn-5 {
+        font-size: 14px;
+        padding: 10px;
     }
 }

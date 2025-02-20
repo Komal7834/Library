@@ -1,0 +1,115 @@
+/* General Footer Styling */
+.footer {
+    background-color:   #ffd900; /* Black background */
+    color: #fff; /* White text for contrast */
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Container */
+.foot-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffd900;
+    color: rgb(240, 229, 229);
+    padding: 15px 20px;
+}
+
+/* Footer Columns */
+.foot-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.foot-column h4 {
+    color: #0e0c07; /* Yellow heading */
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f0efe8;
+    padding-bottom: 5px;
+}
+
+.foot-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.foot-column ul li {
+    margin: 5px 0;
+}
+
+.foot-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.foot-column ul li a:hover {
+    color: #0c0c0b; /* black on hover */
+}
+
+/* Contact Information */
+.foot-column p {
+    margin: 5px 0;
+}
+
+.foot-column a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.foot-column a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Links */
+.socialMediaList {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.socialMediaList li a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.socialMediaList li a:hover {
+    color: #FFD700;
+}
+
+/* Bottom Bar */
+.bottomBar {
+    background-color:#FFD700;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.bottomBar p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .foot-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foot-column {
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+.logo1 {
+    height: 100px;
+    transition: all 0.3s ease;
+}

@@ -8,9 +8,24 @@ const LibrarianDashboard = () => {
   const handleNavigation = (path) => {
     navigate(path);
   };
+  const quotes = [
+    {
+      id: 1,
+      text1: "Thought of the day ..",
+      text2: "Your mind is a magnet. If you think of blessings, you attract blessings, and if you think of problems you attract problems.Always cultive good thoughts and remain positive.",
+    }, ];
 
    return (
        <div className="ldashcontainer">
+        <div className="slider-container">
+        
+          { quotes.map((quote) => (
+            <div key={quote.id} className="slide">
+              <div className="quote-box">
+                <p className="quote-text">"{quote.text1}"</p>
+                <p className="quote-author">- {quote.text2}</p>
+             </div> </div>)) 
+         }
         <div className="dash-box">
             <h1 className="sub1"> Librarian Section </h1>
             <div className="dashbutton">
@@ -22,10 +37,10 @@ const LibrarianDashboard = () => {
                 <button onClick={() => handleNavigation("/")} className="button4"> Logout</button>
             </div>
             </div>
-       </div>
+       </div> </div>
 
 
    );
 
 };
- export default LibrarianDashboard;
+ export default LibrarianDashboard;              

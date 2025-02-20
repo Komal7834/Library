@@ -1,0 +1,95 @@
+/* Stylish Background */
+.v-book-8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFD700, #222);
+    padding: 20px;
+  }
+  
+  /* Container Box */
+  .v-box-8 {
+    width: 90%;
+    max-width: 1100px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #FFD700;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+    text-align: center;
+  }
+  
+  /* Header */
+  .v-box-8 h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #FFD700;
+  }
+  
+  /* Table */
+  .table-8 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Table Headers */
+  .table-8 th {
+    background: #FFD700;
+    color: #000;
+    padding: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+  
+  /* Table Rows */
+  .table-8 td {
+    padding: 12px;
+    color: #0c0c09;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  }
+  
+  /* Alternating Row Colors */
+  .table-8 tr:nth-child(even) {
+    background: rgba(255, 215, 0, 0.1);
+  }
+  
+  /* Hover Effect */
+  .table-8 tr:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transition: 0.3s ease-in-out;
+  }
+  .drop6btn8 {
+    background: #FFD700;
+    color: #000;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    
+  }
+  
+  /* Responsive Table */
+  @media (max-width: 768px) {
+    .v-box-8 {
+      width: 100%;
+      padding: 20px;
+    }
+    
+    .table-8 th, .table-8 td {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  

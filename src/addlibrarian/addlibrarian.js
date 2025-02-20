@@ -3,12 +3,12 @@ import "./addlibrarian.css";
 
 import { useNavigate } from "react-router-dom";
 
-const AddLibrarianPage = () => {
+const AddLibrarianPage = () => {  
  
  
  const navigate = useNavigate();
   
-const handleLogin = (path) => {
+ const handleLogin1 = (path) => {
   navigate("/admin-dashboard");
     
 };
@@ -30,8 +30,8 @@ const handleLogin = (path) => {
           <input type="text" placeholder="Enter Your City" className="input-field" />
           Contact Number:
           <input type="text" placeholder="Enter Your Number" className="input-field" />
-          <button onClick={handleLogin} className="login-button3" >Save</button>
-          <button onClick={handleLogin} className="login-button3" >Cancel</button>
+          <button onClick={handleLogin1} className="login-button3" >Save</button>
+          <button onClick={handleLogin1} className="login-button3" >Cancel</button>
           
         </div>
     </div>

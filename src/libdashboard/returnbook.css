@@ -1,0 +1,103 @@
+/* Background with gradient animation */
+.home-9 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFD700, #222);
+    animation: moveBackground 6s infinite alternate;
+    z-index: -1;
+    text-align: center;
+  }
+  
+  /* Background animation effect */
+  @keyframes moveBackground {
+    0% { background: linear-gradient(135deg, #FFD700, #222); }
+    100% { background: linear-gradient(135deg, #222, #FFD700); }
+  }
+  
+  /* Centered container */
+  .return-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #FFD700;
+  }
+  
+  /* Header styles */
+  .head9 {
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-left: 500px;
+  }
+  h2 {
+    margin-left: 150px;
+    margin-top: 90px;
+    font-size: 30px;
+}
+  
+  /* Input field styles */
+  .input-field-9 {
+    width: 80%;
+    max-width: 400px;
+    margin-left: 350px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: #FFD700;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .input-field-9:focus {
+    border-color: #fff;
+    box-shadow: 0 0 10px #FFD700;
+  }
+  
+  /* Button styles */
+  .button-9 {
+    width: 200px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    background: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+    margin-left: 300px;
+  }
+  
+  .button-9:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0px 0px 12px #FFD700;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .input-field-9 {
+      width: 90%;
+    }
+    
+    .button-9 {
+      width: 100%;
+    }
+    
+  }
+  

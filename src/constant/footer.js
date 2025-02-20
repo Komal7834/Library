@@ -1,22 +1,61 @@
+import React from 'react';
+import "./footer.css";
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+
 const Footer = () => {
- 
-
   return (
-
-    <div className="home-container">
-      <div className="login-box">
-        <h1 className="title">Library Management System</h1>
-        <p className="subtitle">Login as:</p>
-
-
-        <input type="text" placeholder="Username" className="input-field" />
-        <input type="password" placeholder="Password" className="input-field" />
-
-        <button  className="login-button">
-          Login
-        </button>
+    <footer className="footer">
+      <div className="foot-container">
+        <div className='foot-column0'>
+        <div></div><nav><a href="https://herosteels.com" target="_blank" rel="noopener noreferrer" >
+            <img src="https://herosteels.in/images/logo.png" alt="Library Logo" class="logo1"/>
+            </a> 
+            </nav>
+        </div>
+        <div className="foot-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/infrastructure">Plant and Facilities</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/media">Media</a></li>
+            <li><a href="/careers">Careers</a></li>
+          </ul>
+        </div>
+        <div className="foot-column">
+          <h4>Contact Us</h4>
+          <p>Hero Steels Limited</p>
+          <p>Hero Nagar, G.T. Road</p>
+          <p>Ludhiana – 141003, Punjab (INDIA)</p>
+          <p>Email: <a href="mailto:info@herosteels.com">info@herosteels.com</a></p>
+          <p>Phone: <a href="tel:+911615180000">+91 1615180000</a></p>
+        </div>
+        <div className="foot-column">
+          <h4>Follow Us</h4>
+          <ul className="socialMediaList">
+            <li>
+             <p> <a href="https://www.facebook.com/herosteels" target="_blank" rel="noopener noreferrer">
+                <FaFacebook /> Facebook
+              </a></p>
+            </li>
+            <li>
+             <p> <a href="https://twitter.com/herosteels" target="_blank" rel="noopener noreferrer">
+                <FaTwitter /> Twitter
+              </a></p>
+            </li>
+            <li>
+              <p><a href="https://www.linkedin.com/company/herosteels" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin /> LinkedIn
+              </a></p>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+      <div className="bottomBar">
+        <p>&copy; {new Date().getFullYear()} Hero Steels Limited | All Rights Reserved</p>
+      </div>
+    </footer>
   );
 };
 

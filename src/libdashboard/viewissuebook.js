@@ -1,132 +1,53 @@
-
 import "./viewissuebook.css";
+import { useNavigate } from "react-router-dom";
 
+const ViewIssueBookPage = () => {
+  const navigate = useNavigate();
+   const handlenavigation = (path) => {
+    navigate(path);
+   };
+  // Sample data (Replace this with actual data from your backend)
+  const issuedBooks = [
+    { bookNumber: "bkb", employeeId: "a jbbb", employeeName: "jbib", issuedDate: "2024-02-01", returnDate: "2024-02-15", status: "Pending" },
+    { bookNumber: "vvm5", employeeId: "bigv", employeeName: "bib", issuedDate: "2024-02-05", returnDate: "2024-02-17", status: "Returned" },
+  ];
 
-const ViewBookPage = () => {
- 
   return (
-
-   <div className="v-book-6" >
-     <div className="v-box-6">
-          <div></div><h1> Available Books Details :</h1>
-         <table className="table-6">
-          <tr>
-             <th> Book Number:</th>
-             <th>Book Name:</th>
-             <th>Author Name:</th>
-             <th>Publisher:</th>
-             <th>Quantity:</th>
-             <th>Issued Book:</th>
-         </tr>
-         <tr>
-         <td>12</td>
-         <td>bkb</td>
-         <td>a jbbb</td>
-         <td>jbib</td>
-         <td>5</td>
-         <td></td>
-         </tr>
-         <tr> 
-          <td>14</td>
-          <td>vvm5</td>
-          <td>bigv</td>
-          <td>bib</td>
-          <td>6</td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-         </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-          </table>
-        </div>
+    <div className="v-book-8">
+      <div className="v-box-8">
+        <h1>Issued Books Details :</h1>
+        <div><button class="drop6btn8" onClick={() => handlenavigation("/librarian-dashboard")} >Back</button></div>        
+           
+        <table className="table-8">
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Book Number</th>
+              <th>Employee ID</th>
+              <th>Employee Name</th>
+              <th>Issued Date</th>
+              <th>Return Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {issuedBooks.map((book, index) => (
+              <><tr key={index}>
+                <td>{index + 1}</td> {/* Auto-incremented Sr. No. */}
+                <td>{book.bookNumber}</td>
+                <td>{book.employeeId}</td>
+                <td>{book.employeeName}</td>
+                <td>{book.issuedDate}</td>
+                <td>{book.returnDate}</td>
+                <td>{book.status}</td>
+              </tr></>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-
-
 };
-export default ViewBookPage;
+
+
+export default ViewIssueBookPage;

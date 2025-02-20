@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("/libimg.jpg"); /* Deep Black */
+    background: url("/public/background.jpg") no-repeat center center/cover; /* Full-screen background */
     padding: 20px;
 }
 
@@ -15,8 +15,9 @@
     border-radius: 15px;
     box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6); /* Golden Glow */
     text-align: center;
+    margin-left: 250px;
     width: 450px;
-    height: 750px;
+    height: 650px;
     border: 2px solid #111;
     animation: fadeIn 1s ease-in-out;
 }
@@ -30,6 +31,7 @@
     letter-spacing: 1px;
     margin-bottom: 20px;
     margin-top: 10px;
+    margin-left: 15px;
 }
 
 /* Button Group */
@@ -37,6 +39,11 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.slider-container {
+    width: 60%;
+    margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -54,7 +61,6 @@
     box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
     width: 80%;
     margin: auto;
-    
 }
 
 /* Hover Effect */
@@ -62,6 +68,7 @@
     background: #ffd700;
     color: #111;
     box-shadow: 0px 6px 15px rgba(201, 174, 26, 0.8);
+    background: #fff;
     transform: translateY(-2px);
 }
 

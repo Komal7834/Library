@@ -8,6 +8,9 @@ import LibrarianDashboard from "./libdashboard/libdash";
 import AddBooksection from "./libdashboard/addbook";
 import ViewBookPage from "./libdashboard/viewbook";
 import IssueBookPage from "./libdashboard/issuebook";
+import ViewIssueBookPage from "./libdashboard/viewissuebook";
+import RetunBookPage from "./libdashboard/returnbook";
+
 
 
 function App() {
@@ -23,8 +26,8 @@ function App() {
         <Route path="/add-book" element={<AddBooksection />} />
         <Route path="/view-book" element={<ViewBookPage />} />
         <Route path="/issue-book" element={<IssueBookPage />} />
-
-
+        <Route path="/v-issue-book" element={<ViewIssueBookPage />} />
+        <Route path="/return-book" element={<RetunBookPage/>} />
 
       </Routes>
     </Router>

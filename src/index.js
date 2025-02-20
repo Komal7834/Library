@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Header from './constant/header';
-
+import Footer from './constant/footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <Header/>
     <App/>
-    {/* <Footer/> */}
+     <Footer/> 
   </React.StrictMode>
 );
 reportWebVitals();
