@@ -11,14 +11,15 @@ const BookPage1 = () => {
   };
 
   const books = [
-    { subject: "12", number: "bkb", name: "a jbbb", author: "jbib", publisher: "XYZ", quantity: "5", issued: "" },
-    { subject: "14", number: "vvm5", name: "bigv", author: "bib", publisher: "ABC", quantity: "6", issued: "" },
+    { subject: "12", number: "bkb", name: "a jbbb", author: "jbib", publisher: "XYZ", quantity: "5", issued: "" ,availability:"" },
+    { subject: "14", number: "vvm5", name: "bigv", author: "bib", publisher: "ABC", quantity: "6", issued: "" ,availability:""},
     // Add more book data as needed
   ];
 
   // Filter books based on search term
   const filteredBooks = books.filter(book => book.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
+  
   return (
     <div className="book1-6">
       <div className="box1-6">
@@ -46,6 +47,7 @@ const BookPage1 = () => {
               <th>Publisher</th>
               <th>Quantity</th>
               <th>Issued Book</th>
+              <th>Availability</th>
             </tr>
           </thead>
           <tbody>

@@ -19,16 +19,17 @@ return (
         </div>
         
         <nav class="nav">
-        <button class="dropbtn"  >Purchase</button>
+        {/* <button class="dropbtn" href="/purchasepage" >Purchase</button> */}
+            
             <div class="dropdown">
                 <button class="dropbtn">Books </button>
                 <div class="dropdown-content">
-                    <a href="/bookpage1">Chemistry</a>
+                    <a href="/bookpage1">Production And Planning</a>
                     <a href="/bookpage2">Maths</a>
                     <a href="/bookpage3">Psychology</a>
                     <a href="/bookpage4">Finance</a>
                     <a href="/bookpage5">Sales And Marketing</a>
-                    <a href="/bookpage6">Production And Planning</a>
+                   
                 </div>
             </div>
 
