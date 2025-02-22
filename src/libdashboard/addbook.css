@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
     background-color: #222; /* Deep Black */
     position: relative;
     overflow: hidden;
@@ -119,6 +119,18 @@ h1 {
 /* Active Button Effect */
 .logn-5:active {
     transform: scale(0.96);
+}
+.role-select-5 {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #ffd700;
+    border-radius: 6px;
+    background: #111;
+    color: #ffd700;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
 }
 
 /* Fade In Animation */

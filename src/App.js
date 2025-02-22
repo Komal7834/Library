@@ -10,8 +10,11 @@ import ViewBookPage from "./libdashboard/viewbook";
 import IssueBookPage from "./libdashboard/issuebook";
 import ViewIssueBookPage from "./libdashboard/viewissuebook";
 import RetunBookPage from "./libdashboard/returnbook";
-
-
+import BookPage1 from "./constant/book1";
+import BookPage2 from "./constant/book2";
+import BookPage3 from "./constant/book3";
+import BookPage4 from "./constant/book4";
+import BookPage5 from "./constant/book5";
 
 function App() {
   return (
@@ -28,6 +31,15 @@ function App() {
         <Route path="/issue-book" element={<IssueBookPage />} />
         <Route path="/v-issue-book" element={<ViewIssueBookPage />} />
         <Route path="/return-book" element={<RetunBookPage/>} />
+        <Route path="/bookpage1" element={<BookPage1/>} />
+        <Route path="/bookpage2" element={<BookPage2/>} />
+        <Route path="/bookpage3" element={<BookPage3/>} />
+        <Route path="/bookpage4" element={<BookPage4/>} />
+        <Route path="/bookpage5" element={<BookPage5/>} />
+        
+
+       
+
 
       </Routes>
     </Router>

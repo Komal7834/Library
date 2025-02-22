@@ -12,10 +12,10 @@ const RetunBookPage = () => {
 
     return (
       <><div className="home-9"></div><h1 className="head9"> Return Books </h1>
-      <div></div>
+      <div className="box-9">
       <h2 className="retunhead"> Book Number:</h2>
-      <input type="text" className="input-field-9" placeholder="Enter Book No."></input>
-      <h2> employeeId:</h2>
+      <input type="text" className="input-field-9" placeholder="Enter Book No."></input></div>
+      <h2 className="retunhead"> Employee Id:</h2>
       <input type="text" className="input-field-9" placeholder="Enter Book No."></input>
       <div></div>
 

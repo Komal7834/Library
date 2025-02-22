@@ -1,6 +1,6 @@
 /* Background with gradient animation */
 .v-book-6 {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100vh;
     background: linear-gradient(135deg, #FFD700, #222);

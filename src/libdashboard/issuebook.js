@@ -26,7 +26,7 @@ const IssueBookPage = () => {
                <button className="button7" onClick={handleLogin} > Issue Book</button>
                <button className="button7" onClick={handleLogin} > Cancel</button>
                <div></div>
-               <h2> NOTE: Please check Employee Id before issuing book</h2>
+               <h2 className="head-07"> NOTE: Please check Employee Id before issuing book</h2>
             </div>
         </div>
       

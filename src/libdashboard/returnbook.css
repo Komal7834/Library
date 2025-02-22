@@ -1,8 +1,8 @@
 /* Background with gradient animation */
 .home-9 {
-    position: fixed;
+    position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 150vh;
     background: linear-gradient(135deg, #FFD700, #222);
     animation: moveBackground 6s infinite alternate;
     z-index: -1;
@@ -38,11 +38,12 @@
     padding-bottom: 5px;
     margin-left: 500px;
   }
-  h2 {
+  .retunhead {
     margin-left: 150px;
-    margin-top: 90px;
+    margin-top: 150px;
     font-size: 30px;
 }
+
   
   /* Input field styles */
   .input-field-9 {

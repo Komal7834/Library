@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
     background: url("/public/background.jpg") no-repeat center center/cover; /* Full-screen background */
     padding: 20px;
 }

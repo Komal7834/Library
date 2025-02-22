@@ -1,8 +1,8 @@
 
+
 import "../constant/header.css"; // Import CSS file
 
 const Header = () => {
- 
 
 
 
@@ -19,16 +19,16 @@ return (
         </div>
         
         <nav class="nav">
-        <div><button class="dropbtn" >Home</button></div>
+        <button class="dropbtn"  >Purchase</button>
             <div class="dropdown">
                 <button class="dropbtn">Books </button>
                 <div class="dropdown-content">
-                    <a href="#">Chemistry</a>
-                    <a href="#">Maths</a>
-                    <a href="#">Psychology</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Sales And Marketing</a>
-                    <a href="#">Production And Planning</a>
+                    <a href="/bookpage1">Chemistry</a>
+                    <a href="/bookpage2">Maths</a>
+                    <a href="/bookpage3">Psychology</a>
+                    <a href="/bookpage4">Finance</a>
+                    <a href="/bookpage5">Sales And Marketing</a>
+                    <a href="/bookpage6">Production And Planning</a>
                 </div>
             </div>
 
