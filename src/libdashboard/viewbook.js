@@ -46,6 +46,7 @@ const ViewBookPage = () => {
              <th>Publisher:</th>
              <th>Quantity:</th>
              <th>Issued Book:</th>
+             <th>Availability:</th>
          </tr>
          <tbody>
             {filteredBooks.map((book, index) => (
@@ -57,10 +58,12 @@ const ViewBookPage = () => {
                 <td>{book.publisher}</td>
                 <td>{book.quantity}</td>
                 <td>{book.issued}</td>
+                <td>{book.availability}</td>
               </tr>
             ))}
           </tbody>
          <tr>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -75,24 +78,10 @@ const ViewBookPage = () => {
           <td></td>
           <td></td>
           <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
           <td></td>
           </tr>
          <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -107,24 +96,10 @@ const ViewBookPage = () => {
           <td></td>
           <td></td>
           <td></td>
-          </tr>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
           <td></td>
           </tr>
          <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-         <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -139,8 +114,46 @@ const ViewBookPage = () => {
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
           </tr>
          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+         <tr>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
