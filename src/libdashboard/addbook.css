@@ -92,7 +92,7 @@ h1 {
 }
 
 /* Buttons */
-.logn-5 {
+.bttnn-5 {
     background: #111;
     color: #ffd700;
     padding: 12px;
@@ -109,7 +109,7 @@ h1 {
 }
 
 /* Hover Effect */
-.logn-5:hover {
+.bttnn-5:hover {
     background: #ffd700;
     color: #111;
     box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.8);
@@ -117,7 +117,7 @@ h1 {
 }
 
 /* Active Button Effect */
-.logn-5:active {
+.bttnn-5:active {
     transform: scale(0.96);
 }
 .role-select-5 {
@@ -160,8 +160,5 @@ h1 {
         font-size: 14px;
     }
 
-    .logn-5 {
-        font-size: 14px;
-        padding: 10px;
-    }
+ 
 }

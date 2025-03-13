@@ -39,8 +39,8 @@ const AddBooksection = () => {
                 <input type="text" placeholder="Enter Publisher Name"  className="input-5" /> 
                 <h3 className="h-5"> Quantity:</h3>
                 <input type="number" placeholder="Book wants to add"  className="input-5" /> 
-                <button onClick={handleLogin} className="logn-5" > Add</button> 
-                <button onClick={handlecancel} className="logn-5" > Cancel</button>     
+                <button  className="bttnn-5" onClick={handleLogin} > Add</button> 
+                <button  className="bttnn-5" onClick={handlecancel} > Cancel</button>     
                 </div>
 
                 

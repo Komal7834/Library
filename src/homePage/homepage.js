@@ -79,7 +79,7 @@ const HomePage = () => {
             <option value="user">User</option>
           </select>
 
-          <input type="text" placeholder="Username" className="input-field" />
+          <input type="email" placeholder="Email" className="input-field" />
           <input type="password" placeholder="Password" className="input-field" />
 
           <button onClick={handleLogin} className="login-button">
