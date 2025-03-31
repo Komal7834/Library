@@ -27,7 +27,7 @@
 }
 
 .home-5::after {
-    content: "📖 📚 📕 📗 📘 📙";
+    /* content: "📖 📚 📕 📗 📘 📙"; */
     position: absolute;
     font-size: 80px;
     color: rgba(255, 215, 0, 2);
