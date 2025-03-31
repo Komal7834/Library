@@ -29,7 +29,7 @@ export const addBook = async (bookData) => {
 // Fetch all books
 export const fetchBooks = async () => {
   try {
-    const response = await axios.get(`${API_URL}/books/findAll`, getAuthHeaders());
+    const response = await axios.get(`${API_URL}/findAll`, getAuthHeaders());
     return response.data;
   } catch (error) {
     console.error("❌ Error fetching books:", error.response?.data || error);
@@ -40,7 +40,7 @@ export const fetchBooks = async () => {
 // Get book by ID
 export const fetchBookById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}/books/${id}`, getAuthHeaders());
+    const response = await axios.get(`${API_URL}/${id}`, getAuthHeaders());
     return response.data;
   } catch (error) {
     console.error("❌ Error fetching book:", error.response?.data || error);
@@ -51,13 +51,14 @@ export const fetchBookById = async (id) => {
 // Update book by ID
 export const updateBook = async (id, bookData) => {
   try {
-    const response = await axios.put(`${API_URL}/books/${id}`, bookData, getAuthHeaders());
+    const response = await axios.put(`${API_URL}/${id}`, bookData, getAuthHeaders());
     return response.data;
   } catch (error) {
     console.error("❌ Error updating book:", error.response?.data || error);
     throw error;
   }
 };
+
 
 // Delete book by ID
 export const deleteBook = async (id) => {
