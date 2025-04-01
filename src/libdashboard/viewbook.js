@@ -58,13 +58,13 @@ const ViewBookPage = () => {
         <table className="table-6">
           <thead>
             <tr>
-              <th>📖 Book Number</th>
-              <th>📌 Book Name</th>
-              <th>✍️ Author</th>
-              <th>🏢 Publisher</th>
-              <th>📦 Quantity</th>
-              <th>📕 Issued</th>
-              <th>✅ Availability</th>
+              <th>Book Number</th>
+              <th> Book Name</th>
+              <th> Author</th>
+              <th> Publisher</th>
+              <th> Quantity</th>
+              <th> Issued</th>
+              <th>Availability</th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +77,7 @@ const ViewBookPage = () => {
                   <td>{book.publisher}</td>
                   <td>{book.quantity}</td>
                   <td>{book.issued || 0}</td>
-                  <td>{book.quantity - (book.issued || 0) > 0 ? "Available ✅" : "Not Available ❌"}</td>
+                  <td>{book.quantity - (book.issued || 0)  }</td>
                 </tr>
               ))
             ) : (

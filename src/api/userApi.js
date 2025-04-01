@@ -49,3 +49,16 @@ export const getAllUsers = async () => {
     throw error;
   }
 };
+
+// 5.
+export const addLibrarian = async (formData) => {
+  try {
+    const response = await axios.post("http://localhost:3001/users/signup", formData, {
+      headers: { "Content-Type": "application/json" },  // Ensure JSON format
+    });
+    return response.data;
+  } catch (error) {
+    console.error("❌ Error adding librarian:", error.response?.data);
+    throw error;
+  }
+};
