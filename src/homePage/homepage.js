@@ -17,6 +17,7 @@ const HomePage = () => {
       const response = await axios.post("http://localhost:3001/users/login", {
         email,
         password,
+        role,
       });
 
       if (response.data.role === "admin") {
