@@ -24,7 +24,7 @@ const ViewLibrarianPage = () => {
 
   // Filter librarians based on search term
   const filterlibs = librarians.filter(libs => {
-    const libname = libs.libname || ''; // Fallback to an empty string if libname is undefined or null
+    const libname = libs.name || ''; // Fallback to an empty string if libname is undefined or null
     return libname.toLowerCase().includes(searchTerm.toLowerCase());
   });
   
