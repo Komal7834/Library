@@ -33,7 +33,6 @@ const LibrarianDashboard = () => {
                 <button onClick={() => handleNavigation("/view-book")} className="button4"> View Books</button>
                 <button onClick={() => handleNavigation("/issue-book")} className="button4"> Issue Book</button>
                 <button onClick={() => handleNavigation("/v-issue-book")} className="button4"> view Issued Book</button>
-                <button onClick={() => handleNavigation("/return-book")} className="button4"> Return Book</button>
                 <button onClick={() => handleNavigation("/")} className="button4"> Logout</button>
             </div>
             </div>

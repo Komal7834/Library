@@ -71,7 +71,6 @@ const HomePage = () => {
           <select className="role-select" value={role} onChange={(e) => setRole(e.target.value)}>
             <option value="admin">Admin</option>
             <option value="librarian">Librarian</option>
-            <option value="user">User</option>
           </select>
 
           <input type="email" placeholder="Email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} />

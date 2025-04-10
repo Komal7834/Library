@@ -26,6 +26,20 @@ const ViewIssuedBookPage = () => {
     }
   };
 
+  const handleReturnBook = async (issuedBookId) => {
+    try {
+      const response = await axios.post("http://localhost:3001/books/return-book", {
+        issuedBookId,
+      });
+      alert(response.data);
+      getIssuedBooks(); // refresh the list
+    } catch (error) {
+      console.error("❌ Return failed:", error);
+      alert("❌ Return failed: " + (error.response?.data?.message || error.message));
+    }
+  };
+  
+
   const filteredBooks = issuedBooks
     .filter((entry) =>
       !searchTerm || (entry.book?.book?.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -73,6 +87,7 @@ const ViewIssuedBookPage = () => {
               <th>Issued To</th>
               <th>Employee ID</th>
               <th>Issued Date</th>
+              <th>Return</th>
             </tr>
           </thead>
           <tbody>
@@ -88,11 +103,17 @@ const ViewIssuedBookPage = () => {
                   <td>{entry.issuedToName || "—"}</td>
                   <td>{entry.employeeId || "—"}</td>
                   <td>{entry.issuedDate ? new Date(entry.issuedDate).toLocaleDateString() : "—"}</td>
+                  <td>
+                  <button onClick={() => handleReturnBook(entry.id)}>
+                    🔁 Return Book
+                  </button>
+
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="9" style={{ textAlign: "center" }}>
+                <td colSpan="10" style={{ textAlign: "center" }}>
                   ❌ No issued books found.
                 </td>
               </tr>

@@ -103,8 +103,6 @@ const IssueBookPage = () => {
               <th>Author</th>
               <th>Publisher</th>
               <th>Availability</th>
-              <th>Issued To</th>
-              <th>Emp ID</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -120,8 +118,6 @@ const IssueBookPage = () => {
                     <td>{book.author}</td>
                     <td>{book.publisher}</td>
                     <td>{availability}</td>
-                    <td>{book.issuedToName || "—"}</td>
-                    <td>{book.employeeId || "—"}</td>
                     <td>
                       <button
                         onClick={() => handleIssueBook(book.bookNo)}
