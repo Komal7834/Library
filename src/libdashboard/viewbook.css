@@ -103,5 +103,19 @@
       width: 100%;
       padding: 10px;
     }
+    .action-button {
+  padding: 6px 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
   }
   

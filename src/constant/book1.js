@@ -59,7 +59,8 @@ const BookPage1 = () => {
                 <td>{book.author}</td>
                 <td>{book.publisher}</td>
                 <td>{book.quantity}</td>
-                <td>{book.issued}</td>
+                <td>{book.issue}</td>
+                <td>{book.availability}</td>
               </tr>
             ))}
           </tbody>

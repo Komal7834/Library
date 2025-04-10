@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchBooks } from "../api/bookApi"; // Correct import path
+import axios from "axios";
+import { fetchBooks } from "../api/bookApi";
 import "./viewbook.css";
 
 const ViewBookPage = () => {
@@ -9,41 +10,69 @@ const ViewBookPage = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const getBooks = async () => {
-      try {
-        const response = await fetchBooks();
-        console.log("📚 API Response:", response); // Debugging
-  
-        if (Array.isArray(response.data)) {  
-          setBooks(response.data);  // ✅ Ensure `response.data` is an array
-        } else {
-          console.error("🚨 Unexpected API response:", response);
-          setBooks([]); // Fallback to empty array
-        }
-      } catch (error) {
-        console.error("❌ Error fetching books:", error);
-      }
-    };
-  
     getBooks();
   }, []);
-  
-  
-  // Correct property name for filtering
+
+  const getBooks = async () => {
+    try {
+      const response = await fetchBooks();
+      if (Array.isArray(response.data)) {
+        setBooks(response.data);
+      } else {
+        console.error("🚨 Unexpected API response:", response);
+        setBooks([]);
+      }
+    } catch (error) {
+      console.error("❌ Error fetching books:", error);
+    }
+  };
+
+  const handleIssueBook = async (bookNo) => {
+    try {
+      const response = await axios.post("http://localhost:3001/books/issue-book", {
+        bookNumber: bookNo,
+        issuedDate: new Date().toISOString(),
+      });
+
+      console.log("✅ Book Issued:", response.data);
+      alert("✅ Book Issued Successfully!");
+      getBooks();
+    } catch (error) {
+      console.error("❌ Issue failed:", error);
+      alert("❌ Issue failed: " + (error.response?.data?.error || error.message));
+    }
+  };
+
+  const handleReturnBook = async (bookNo) => {
+    try {
+      const response = await axios.post("http://localhost:3001/books/return-book", {
+        bookNumber: bookNo,
+        studentName: "Default Student",
+        returnDate: new Date().toISOString(),
+      });
+
+      console.log("📦 Book Returned:", response.data);
+      alert("📦 Book Returned Successfully!");
+      getBooks();
+    } catch (error) {
+      console.error("❌ Return failed:", error);
+      alert("❌ Return failed: " + (error.response?.data?.error || error.message));
+    }
+  };
+
   const filteredBooks = books.filter((book) =>
     book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
+
   return (
     <div className="v-book-6">
       <div className="v-box-6">
-        <h1 className="head6">📚 Available Books Details :</h1>
+        <h1 className="head6">📚 Available Books Details:</h1>
 
         <button className="drop6btn6" onClick={() => navigate("/librarian-dashboard")}>
-          🔙 Back
+          Back
         </button>
 
-        {/* Search Box */}
         <div className="search-container">
           <input
             type="text"
@@ -54,35 +83,58 @@ const ViewBookPage = () => {
           />
         </div>
 
-        {/* Books Table */}
         <table className="table-6">
           <thead>
             <tr>
-              <th>Book Number</th>
-              <th> Book Name</th>
-              <th> Author</th>
-              <th> Publisher</th>
-              <th> Quantity</th>
-              <th> Issued</th>
+              <th>Sr. NO.</th>
+              <th>Book No</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Publisher</th>
+              <th>Quantity</th>
+              <th>Issued</th>
               <th>Availability</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {filteredBooks.length > 0 ? (
-              filteredBooks.map((book, index) => (
-                <tr key={index}>
-                  <td>{book.bookNo}</td>
-                  <td>{book.book}</td>
-                  <td>{book.author}</td>
-                  <td>{book.publisher}</td>
-                  <td>{book.quantity}</td>
-                  <td>{book.issued || 0}</td>
-                  <td>{book.quantity - (book.issued || 0)  }</td>
-                </tr>
-              ))
+              filteredBooks.map((book, index) => {
+                const availability = book.availability ?? (book.quantity - (book.issued || 0));
+                return (
+                  <tr key={book.bookNo}>
+                    <td>{index + 1}</td>
+                    <td>{book.bookNo}</td>
+                    <td>{book.book}</td>
+                    <td>{book.author}</td>
+                    <td>{book.publisher}</td>
+                    <td>{book.quantity}</td>
+                    <td>{book.issued || 0}</td>
+                    <td>{availability}</td>
+                    <td>
+                      <button
+                        onClick={() => handleIssueBook(book.bookNo)}
+                        enabled={availability <= 0}
+                        className="action-button issue-btn"
+                      >
+                         Issue
+                      </button>
+                      <button
+                        onClick={() => handleReturnBook(book.bookNo)}
+                        enabled={book.issued <= 0}
+                        className="action-button return-btn"
+                      >
+                         Return
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <tr>
-                <td colSpan="7" style={{ textAlign: "center" }}>❌ No books found.</td>
+                <td colSpan="9" style={{ textAlign: "center" }}>
+                  ❌ No books found.
+                </td>
               </tr>
             )}
           </tbody>

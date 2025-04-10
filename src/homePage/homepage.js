@@ -15,7 +15,7 @@ const HomePage = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:3001/users/login", {
-        email,
+        email,    
         password,
         role,
       });
