@@ -17,7 +17,10 @@ const Header = () => {
             />
           </a>
         </nav>
-        <div className="title1"></div>
+        <div className="title1">
+  <h1 className="library-title">📚 Hero Steels Library</h1>
+</div>
+
       </div>
 
       <nav className="nav">

@@ -15,12 +15,12 @@ const Footer = () => {
         <div className="foot-column">
           <h4>Company</h4>
           <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/infrastructure">Plant and Facilities</a></li>
-            <li><a href="/customers">Customers</a></li>
-            <li><a href="/media">Media</a></li>
-            <li><a href="/careers">Careers</a></li>
+            <li><a href="https://www.herosteels.com/page-about-us">About Us</a></li>
+            <li><a href="https://www.herosteels.com/hero-product-c4ca4238a0b923820dcc509a6f75849b">Products</a></li>
+            <li><a href="https://www.herosteels.com/infrastructure">Plant and Facilities</a></li>
+            <li><a href="https://www.herosteels.com/industries">Customers</a></li>
+            <li><a href="https://www.herosteels.com/magazines">Media</a></li>
+            <li><a href="https://www.herosteels.com/jobs">Careers</a></li>
           </ul>
         </div>
         <div className="foot-column">

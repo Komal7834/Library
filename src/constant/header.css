@@ -1,89 +1,111 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Header styling */
+/* General Header Styling */
 .header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px 30px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    background-color: #ffd900;
-    color: rgb(0, 0, 0);
-    padding: 15px 20px;
-}
-
-/* Logo and App Name */
-.logo-container {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Logo and Title Container */
+  .logo-container {
     display: flex;
     align-items: center;
-    text-decoration: none;
-}
-
-.logo {
+  }
+  
+  .logo {
     height: 50px;
-    transition: all 0.3s ease;
-}
-.title1{
-    flex-grow: 1;
-    text-align: center;
-    color: rgb(231, 219, 230);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Navigation Styling */
-.nav {
+    margin-right: 20px;
+  }
+  
+  /* Centered Title */
+  .title1 {
+    flex: 1;
     display: flex;
-    gap: 20px;
-}
-
-/* Dropdown Menu */
-.dropdown {
+    justify-content: flex-start; /* Pushes title a bit right */
+    margin-left: 300px; /* Adjust this value as needed */
+  }
+  
+  
+  .library-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 1px 1px 2px #000;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Glow effect animation */
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px gold, 0 0 10px gold;
+    }
+    to {
+      text-shadow: 0 0 15px gold, 0 0 25px orange;
+    }
+  }
+  
+  /* Navigation Styling */
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Dropdown Menu Styling */
+  .dropdown {
     position: relative;
     display: inline-block;
-}
-
-.dropbtn {
-    background-color: #000000;
-    color: white;
-    padding: 10px 15px;
+    margin-left: 20px;
+  }
+  
+  .dropbtn {
+    background-color: #333;
+    color: gold;
+    padding: 10px 16px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.dropbtn:hover {
-    background-color: #000000;
-}
-
-/* Dropdown Content */
-.dropdown-content {
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .dropbtn:hover {
+    background-color: #444;
+  }
+  
+  .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
-    min-width: 150px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    background-color: #2a2a2a;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
     z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #444;
+    color: gold;
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: block;
-}
+  }
+  
