@@ -32,10 +32,24 @@ const IssueBookPage = () => {
   };
 
   const handleIssueBook = async (bookNo) => {
+    const issuedToName = prompt("👤 Enter User Name:");
+    if (!issuedToName) {
+      alert("⚠️ Name is required to issue a book.");
+      return;
+    }
+
+    const employeeId = prompt("🆔 Enter Employee ID:");
+    if (!employeeId) {
+      alert("⚠️ Employee ID is required.");
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:3001/books/issue-book", {
         bookNumber: bookNo,
         issuedDate: new Date().toISOString(),
+        issuedToName,
+        employeeId,
       });
 
       console.log("✅ Book Issued:", response.data);
@@ -44,23 +58,6 @@ const IssueBookPage = () => {
     } catch (error) {
       console.error("❌ Issue failed:", error);
       alert("❌ Issue failed: " + (error.response?.data?.error || error.message));
-    }
-  };
-
-  const handleReturnBook = async (bookNo) => {
-    try {
-      const response = await axios.post("http://localhost:3001/books/return-book", {
-        bookNumber: bookNo,
-        studentName: "Default Student",
-        returnDate: new Date().toISOString(),
-      });
-
-      console.log("📦 Book Returned:", response.data);
-      alert("📦 Book Returned Successfully!");
-      getBooks();
-    } catch (error) {
-      console.error("❌ Return failed:", error);
-      alert("❌ Return failed: " + (error.response?.data?.error || error.message));
     }
   };
 
@@ -106,12 +103,14 @@ const IssueBookPage = () => {
               <th>Author</th>
               <th>Publisher</th>
               <th>Availability</th>
+              <th>Issued To</th>
+              <th>Emp ID</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {filteredBooks.length > 0 ? (
-              filteredBooks.map((book, index) => {
+              filteredBooks.map((book) => {
                 const availability = book.availability ?? (book.quantity - (book.issued || 0));
                 return (
                   <tr key={book.bookNo}>
@@ -121,6 +120,8 @@ const IssueBookPage = () => {
                     <td>{book.author}</td>
                     <td>{book.publisher}</td>
                     <td>{availability}</td>
+                    <td>{book.issuedToName || "—"}</td>
+                    <td>{book.employeeId || "—"}</td>
                     <td>
                       <button
                         onClick={() => handleIssueBook(book.bookNo)}
@@ -128,13 +129,6 @@ const IssueBookPage = () => {
                         className="action-button issue-btn"
                       >
                         📖 Issue
-                      </button>
-                      <button
-                        onClick={() => handleReturnBook(book.bookNo)}
-                        disabled={book.issued <= 0}
-                        className="action-button return-btn"
-                      >
-                        🔄 Return
                       </button>
                     </td>
                   </tr>

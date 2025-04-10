@@ -1,46 +1,40 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { fetchBooks } from "../api/bookApi";
+import axios from "axios";
 import "./viewissuebook.css";
 
 const ViewIssuedBookPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
-  const [books, setBooks] = useState([]);
+  const [issuedBooks, setIssuedBooks] = useState([]);
 
   const queryParams = new URLSearchParams(location.search);
   const subjectFilter = queryParams.get("subject");
 
   useEffect(() => {
-    getBooks();
+    getIssuedBooks();
   }, []);
 
-  const getBooks = async () => {
+  const getIssuedBooks = async () => {
     try {
-      const response = await fetchBooks();
-      if (Array.isArray(response.data)) {
-        setBooks(response.data);
-      } else {
-        console.error("🚨 Unexpected API response:", response);
-        setBooks([]);
-      }
+      const response = await axios.get("http://localhost:3001/books/issued-books");
+      console.log("📦 Issued books response:", response.data);
+      setIssuedBooks(response.data);
     } catch (error) {
-      console.error("❌ Error fetching books:", error);
+      console.error("❌ Error fetching issued books:", error);
     }
   };
 
-
-  
-  const filteredBooks = books
-  .filter((book) => book.issued > 0) // ✅ Show only books where issued > 0
-  .filter((book) =>
-    book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-  .filter((book) =>
-    subjectFilter ? book.subject?.toLowerCase() === subjectFilter.toLowerCase() : true
-  );
-
+  const filteredBooks = issuedBooks
+    .filter((entry) =>
+      !searchTerm || (entry.book?.book?.toLowerCase().includes(searchTerm.toLowerCase()))
+    )
+    .filter((entry) =>
+      subjectFilter
+        ? entry.book?.subject?.toLowerCase() === subjectFilter.toLowerCase()
+        : true
+    );
 
   return (
     <div className="v-book-6">
@@ -70,37 +64,36 @@ const ViewIssuedBookPage = () => {
         <table className="table-6">
           <thead>
             <tr>
-              <th>Sr. NO.</th>
+              <th>Sr. No.</th>
               <th>Book No</th>
               <th>Book Name</th>
               <th>Subject</th>
               <th>Author</th>
               <th>Publisher</th>
-              <th>Quantity</th>
-              <th>Issued</th>
+              <th>Issued To</th>
+              <th>Employee ID</th>
+              <th>Issued Date</th>
             </tr>
           </thead>
           <tbody>
             {filteredBooks.length > 0 ? (
-              filteredBooks.map((book, index) => {
-                return (
-                  <tr key={book.bookNo}>
-                    <td>{index + 1}</td>
-                    <td>{book.bookNo}</td>
-                    <td>{book.book}</td>
-                    <td>{book.subject || "—"}</td>
-                    <td>{book.author}</td>
-                    <td>{book.publisher}</td>
-                    <td>{book.quantity}</td>
-                    <td>{book.issued || 0}</td>
-                  
-                  </tr>
-                );
-              })
+              filteredBooks.map((entry, index) => (
+                <tr key={entry.id}>
+                  <td>{index + 1}</td>
+                  <td>{entry.book?.bookNo || "—"}</td>
+                  <td>{entry.book?.book || "—"}</td>
+                  <td>{entry.book?.subject || "—"}</td>
+                  <td>{entry.book?.author || "—"}</td>
+                  <td>{entry.book?.publisher || "—"}</td>
+                  <td>{entry.issuedToName || "—"}</td>
+                  <td>{entry.employeeId || "—"}</td>
+                  <td>{entry.issuedDate ? new Date(entry.issuedDate).toLocaleDateString() : "—"}</td>
+                </tr>
+              ))
             ) : (
               <tr>
-                <td colSpan="10" style={{ textAlign: "center" }}>
-                  ❌ No books found.
+                <td colSpan="9" style={{ textAlign: "center" }}>
+                  ❌ No issued books found.
                 </td>
               </tr>
             )}
