@@ -1,63 +1,112 @@
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { fetchBooks } from "../api/bookApi";
 import "./viewissuebook.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const ViewIssueBookPage = () => {
+const ViewIssuedBookPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
+  const [books, setBooks] = useState([]);
+
+  const queryParams = new URLSearchParams(location.search);
+  const subjectFilter = queryParams.get("subject");
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  const getBooks = async () => {
+    try {
+      const response = await fetchBooks();
+      if (Array.isArray(response.data)) {
+        setBooks(response.data);
+      } else {
+        console.error("🚨 Unexpected API response:", response);
+        setBooks([]);
+      }
+    } catch (error) {
+      console.error("❌ Error fetching books:", error);
+    }
+  };
+
+
   
-   const handlenavigation = (path) => {
-    navigate(path);
-   };
-  // Sample data (Replace this with actual data from your backend)
-  const issuedBooks = [
-    { bookNumber: "bkb", employeeId: "a jbbb", employeeName: "jbib", issuedDate: "2024-02-01", returnDate: "2024-02-15", status: "Pending" },
-    { bookNumber: "vvm5", employeeId: "bigv", employeeName: "bib", issuedDate: "2024-02-05", returnDate: "2024-02-17", status: "Returned" },
-  ];
-   // Filter books based on search term
-   const filteredBooks = issuedBooks.filter(book => book.employeeId.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredBooks = books
+  .filter((book) => book.issued > 0) // ✅ Show only books where issued > 0
+  .filter((book) =>
+    book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+  .filter((book) =>
+    subjectFilter ? book.subject?.toLowerCase() === subjectFilter.toLowerCase() : true
+  );
 
 
   return (
-    <div className="v-book-8">
-      <div className="v-box-8">
-        <h1>Issued Books Details :</h1>
-        <div><button class="drop6btn8" onClick={() => handlenavigation("/librarian-dashboard")} >Back</button></div>        
+    <div className="v-book-6">
+      <div className="v-box-6">
+        <h1 className="head6">📚 Issued Books Details:</h1>
+
+        <button className="drop6btn6" onClick={() => navigate("/librarian-dashboard")}>
+          🔙 Back
+        </button>
+
+        {subjectFilter && (
+          <h3 style={{ margin: "10px 0" }}>
+            📂 Showing books for subject: <b>{subjectFilter}</b>
+          </h3>
+        )}
+
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search by Book Name..."
+            placeholder="🔍 Search by Book Name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
           />
-          <button className="search-button" onClick={() => {}}>Search</button>
         </div>
 
-        <table className="table-8">
+        <table className="table-6">
           <thead>
             <tr>
-              <th>Sr. No.</th>
-              <th>Book Number</th>
-              <th>Employee ID</th>
-              <th>Employee Name</th>
-              <th>Issued Date</th>
-              <th>Return Date</th>
-              <th>Status</th>
+              <th>Sr. NO.</th>
+              <th>Book No</th>
+              <th>Book Name</th>
+              <th>Subject</th>
+              <th>Author</th>
+              <th>Publisher</th>
+              <th>Quantity</th>
+              <th>Issued</th>
+              <th>Availability</th>
             </tr>
           </thead>
           <tbody>
-            {filteredBooks.map((book, index) => (
-              <><tr key={index}>
-                <td>{index + 1}</td> {/* Auto-incremented Sr. No. */}
-                <td>{book.bookNumber}</td>
-                <td>{book.employeeId}</td>
-                <td>{book.employeeName}</td>
-                <td>{book.issuedDate}</td>
-                <td>{book.returnDate}</td>
-                <td>{book.status}</td>
-              </tr></>
-            ))}
+            {filteredBooks.length > 0 ? (
+              filteredBooks.map((book, index) => {
+                const availability = book.availability ?? (book.quantity - (book.issued || 0));
+                return (
+                  <tr key={book.bookNo}>
+                    <td>{index + 1}</td>
+                    <td>{book.bookNo}</td>
+                    <td>{book.book}</td>
+                    <td>{book.subject || "—"}</td>
+                    <td>{book.author}</td>
+                    <td>{book.publisher}</td>
+                    <td>{book.quantity}</td>
+                    <td>{book.issued || 0}</td>
+                    <td>{availability}</td>
+                  
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="10" style={{ textAlign: "center" }}>
+                  ❌ No books found.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -65,5 +114,4 @@ const ViewIssueBookPage = () => {
   );
 };
 
-
-export default ViewIssueBookPage;
+export default ViewIssuedBookPage;

@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchBooks } from "../api/bookApi";
 import "./viewbook.css";
 
 const ViewBookPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
+
+  const queryParams = new URLSearchParams(location.search);
+  const subjectFilter = queryParams.get("subject");
 
   useEffect(() => {
     getBooks();
@@ -60,9 +64,13 @@ const ViewBookPage = () => {
     }
   };
 
-  const filteredBooks = books.filter((book) =>
-    book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredBooks = books
+    .filter((book) =>
+      book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((book) =>
+      subjectFilter ? book.subject?.toLowerCase() === subjectFilter.toLowerCase() : true
+    );
 
   return (
     <div className="v-book-6">
@@ -70,8 +78,14 @@ const ViewBookPage = () => {
         <h1 className="head6">📚 Available Books Details:</h1>
 
         <button className="drop6btn6" onClick={() => navigate("/librarian-dashboard")}>
-          Back
+          🔙 Back
         </button>
+
+        {subjectFilter && (
+          <h3 style={{ margin: "10px 0" }}>
+            📂 Showing books for subject: <b>{subjectFilter}</b>
+          </h3>
+        )}
 
         <div className="search-container">
           <input
@@ -89,6 +103,7 @@ const ViewBookPage = () => {
               <th>Sr. NO.</th>
               <th>Book No</th>
               <th>Book Name</th>
+              <th>Subject</th>
               <th>Author</th>
               <th>Publisher</th>
               <th>Quantity</th>
@@ -106,6 +121,7 @@ const ViewBookPage = () => {
                     <td>{index + 1}</td>
                     <td>{book.bookNo}</td>
                     <td>{book.book}</td>
+                    <td>{book.subject || "—"}</td>
                     <td>{book.author}</td>
                     <td>{book.publisher}</td>
                     <td>{book.quantity}</td>
@@ -114,17 +130,17 @@ const ViewBookPage = () => {
                     <td>
                       <button
                         onClick={() => handleIssueBook(book.bookNo)}
-                        enabled={availability <= 0}
+                        disabled={availability <= 0}
                         className="action-button issue-btn"
                       >
-                         Issue
+                        📖 Issue
                       </button>
                       <button
                         onClick={() => handleReturnBook(book.bookNo)}
-                        enabled={book.issued <= 0}
+                        disabled={book.issued <= 0}
                         className="action-button return-btn"
                       >
-                         Return
+                        🔄 Return
                       </button>
                     </td>
                   </tr>
@@ -132,7 +148,7 @@ const ViewBookPage = () => {
               })
             ) : (
               <tr>
-                <td colSpan="9" style={{ textAlign: "center" }}>
+                <td colSpan="10" style={{ textAlign: "center" }}>
                   ❌ No books found.
                 </td>
               </tr>

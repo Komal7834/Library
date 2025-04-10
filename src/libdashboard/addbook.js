@@ -65,10 +65,13 @@ const AddBooksection = () => {
           <h3 className="h-5">Subject:</h3>
           <select className="role-select-5" name="subject" value={bookData.subject} onChange={handleChange} required>
             <option value="">Select Subject</option>
-            <option value="Physics">Physics</option>
+            <option value="Production and planning">Production and planning</option>
+            <option value="Sales and Marketing">Sales and Marketing</option>
             <option value="Accounts">Accounts</option>
-            <option value="Planning">Planning</option>
-            <option value="Other">Others</option>
+            <option value="Human resource">Human resource</option>
+            <option value="Information technology">Information technology</option>
+            <option value="Dispatch">Dispatch</option>
+            <option value="Others">Others</option>
           </select>
 
           <h3 className="h-5">Book Number:</h3>
