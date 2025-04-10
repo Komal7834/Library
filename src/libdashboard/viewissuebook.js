@@ -78,13 +78,11 @@ const ViewIssuedBookPage = () => {
               <th>Publisher</th>
               <th>Quantity</th>
               <th>Issued</th>
-              <th>Availability</th>
             </tr>
           </thead>
           <tbody>
             {filteredBooks.length > 0 ? (
               filteredBooks.map((book, index) => {
-                const availability = book.availability ?? (book.quantity - (book.issued || 0));
                 return (
                   <tr key={book.bookNo}>
                     <td>{index + 1}</td>
@@ -95,7 +93,6 @@ const ViewIssuedBookPage = () => {
                     <td>{book.publisher}</td>
                     <td>{book.quantity}</td>
                     <td>{book.issued || 0}</td>
-                    <td>{availability}</td>
                   
                   </tr>
                 );

@@ -1,56 +1,154 @@
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./issuebook.css";
+import { fetchBooks } from "../api/bookApi";
+import "./viewbook.css";
 
 const IssueBookPage = () => {
   const navigate = useNavigate();
-  const [bookNumber, setBookNumber] = useState("");
-  const [issuedate, setIssueDate] = useState("");
-  const [employeeId, setEmployeeId] = useState("");
-  const [employeeName, setEmployeeName] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
+  const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [books, setBooks] = useState([]);
 
-  const handleIssueBook = async () => {
+  const queryParams = new URLSearchParams(location.search);
+  const subjectFilter = queryParams.get("subject");
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  const getBooks = async () => {
     try {
-      await axios.post("http://localhost:3001/books/issue-book", {
-        bookNumber: parseInt(bookNumber),
-        issuedate,
-        employeeId,
-        employeeName,
-        contactNumber,
-      });
-      alert("✅ Book issued successfully!");
-      navigate("/librarian-dashboard");
+      const response = await fetchBooks();
+      if (Array.isArray(response.data)) {
+        setBooks(response.data);
+      } else {
+        console.error("🚨 Unexpected API response:", response);
+        setBooks([]);
+      }
     } catch (error) {
-      console.error("❌ Issue failed:", error);
-      alert("❌ Failed to issue book!");
+      console.error("❌ Error fetching books:", error);
     }
   };
 
+  const handleIssueBook = async (bookNo) => {
+    try {
+      const response = await axios.post("http://localhost:3001/books/issue-book", {
+        bookNumber: bookNo,
+        issuedDate: new Date().toISOString(),
+      });
+
+      console.log("✅ Book Issued:", response.data);
+      alert("✅ Book Issued Successfully!");
+      getBooks();
+    } catch (error) {
+      console.error("❌ Issue failed:", error);
+      alert("❌ Issue failed: " + (error.response?.data?.error || error.message));
+    }
+  };
+
+  const handleReturnBook = async (bookNo) => {
+    try {
+      const response = await axios.post("http://localhost:3001/books/return-book", {
+        bookNumber: bookNo,
+        studentName: "Default Student",
+        returnDate: new Date().toISOString(),
+      });
+
+      console.log("📦 Book Returned:", response.data);
+      alert("📦 Book Returned Successfully!");
+      getBooks();
+    } catch (error) {
+      console.error("❌ Return failed:", error);
+      alert("❌ Return failed: " + (error.response?.data?.error || error.message));
+    }
+  };
+
+  const filteredBooks = books
+    .filter((book) =>
+      book.book && book.book.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((book) =>
+      subjectFilter ? book.subject?.toLowerCase() === subjectFilter.toLowerCase() : true
+    );
+
   return (
-    <div className="issue-7">
-      <div className="issuebox-7">
-        <h1>Issued Books:</h1>
-        <h3 className="h-7">Book Number:</h3>
-        <input className="input-field7" value={bookNumber} onChange={(e) => setBookNumber(e.target.value)} placeholder="Enter Number" />
-        
-        <h3 className="h-7">issue Date:</h3>
-        <input className="input-field7" value={issuedate} onChange={(e) => setIssueDate(e.target.value)} placeholder="Enter Number" />
+    <div className="v-book-6">
+      <div className="v-box-6">
+        <h1 className="head6">📚 Issue Books To User:</h1>
 
-        <h3 className="h-7">Employee ID:</h3>
-        <input className="input-field7" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder="Enter ID" />
+        <button className="drop6btn6" onClick={() => navigate("/librarian-dashboard")}>
+          🔙 Back
+        </button>
 
-        <h3 className="h-7">Employee Name:</h3>
-        <input className="input-field7" value={employeeName} onChange={(e) => setEmployeeName(e.target.value)} placeholder="Enter Name" />
+        {subjectFilter && (
+          <h3 style={{ margin: "10px 0" }}>
+            📂 Showing books for subject: <b>{subjectFilter}</b>
+          </h3>
+        )}
 
-        <h3 className="h-7">Contact Number:</h3>
-        <input className="input-field7" value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} placeholder="Enter Number" />
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="🔍 Search by Book Name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
 
-        <button className="button7" onClick={handleIssueBook}>Issue Book</button>
-        <button className="button7" onClick={() => navigate("/librarian-dashboard")}>Cancel</button>
-
-        <h2 className="head-07">NOTE: Please check Employee ID before issuing book</h2>
+        <table className="table-6">
+          <thead>
+            <tr>
+              <th>Book No</th>
+              <th>Book Name</th>
+              <th>Subject</th>
+              <th>Author</th>
+              <th>Publisher</th>
+              <th>Availability</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredBooks.length > 0 ? (
+              filteredBooks.map((book, index) => {
+                const availability = book.availability ?? (book.quantity - (book.issued || 0));
+                return (
+                  <tr key={book.bookNo}>
+                    <td>{book.bookNo}</td>
+                    <td>{book.book}</td>
+                    <td>{book.subject || "—"}</td>
+                    <td>{book.author}</td>
+                    <td>{book.publisher}</td>
+                    <td>{availability}</td>
+                    <td>
+                      <button
+                        onClick={() => handleIssueBook(book.bookNo)}
+                        disabled={availability <= 0}
+                        className="action-button issue-btn"
+                      >
+                        📖 Issue
+                      </button>
+                      <button
+                        onClick={() => handleReturnBook(book.bookNo)}
+                        disabled={book.issued <= 0}
+                        className="action-button return-btn"
+                      >
+                        🔄 Return
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="10" style={{ textAlign: "center" }}>
+                  ❌ No books found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { fetchBooks } from "../api/bookApi";
 import "./viewbook.css";
 
@@ -28,39 +27,6 @@ const ViewBookPage = () => {
       }
     } catch (error) {
       console.error("❌ Error fetching books:", error);
-    }
-  };
-
-  const handleIssueBook = async (bookNo) => {
-    try {
-      const response = await axios.post("http://localhost:3001/books/issue-book", {
-        bookNumber: bookNo,
-        issuedDate: new Date().toISOString(),
-      });
-
-      console.log("✅ Book Issued:", response.data);
-      alert("✅ Book Issued Successfully!");
-      getBooks();
-    } catch (error) {
-      console.error("❌ Issue failed:", error);
-      alert("❌ Issue failed: " + (error.response?.data?.error || error.message));
-    }
-  };
-
-  const handleReturnBook = async (bookNo) => {
-    try {
-      const response = await axios.post("http://localhost:3001/books/return-book", {
-        bookNumber: bookNo,
-        studentName: "Default Student",
-        returnDate: new Date().toISOString(),
-      });
-
-      console.log("📦 Book Returned:", response.data);
-      alert("📦 Book Returned Successfully!");
-      getBooks();
-    } catch (error) {
-      console.error("❌ Return failed:", error);
-      alert("❌ Return failed: " + (error.response?.data?.error || error.message));
     }
   };
 
@@ -109,7 +75,6 @@ const ViewBookPage = () => {
               <th>Quantity</th>
               <th>Issued</th>
               <th>Availability</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -127,22 +92,6 @@ const ViewBookPage = () => {
                     <td>{book.quantity}</td>
                     <td>{book.issued || 0}</td>
                     <td>{availability}</td>
-                    <td>
-                      <button
-                        onClick={() => handleIssueBook(book.bookNo)}
-                        disabled={availability <= 0}
-                        className="action-button issue-btn"
-                      >
-                        📖 Issue
-                      </button>
-                      <button
-                        onClick={() => handleReturnBook(book.bookNo)}
-                        disabled={book.issued <= 0}
-                        className="action-button return-btn"
-                      >
-                        🔄 Return
-                      </button>
-                    </td>
                   </tr>
                 );
               })
