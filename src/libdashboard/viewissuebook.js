@@ -19,7 +19,6 @@ const ViewIssuedBookPage = () => {
   const getIssuedBooks = async () => {
     try {
       const response = await axios.get("http://localhost:3001/books/issued-books");
-      console.log("📦 Issued books response:", response.data);
       setIssuedBooks(response.data);
     } catch (error) {
       console.error("❌ Error fetching issued books:", error);
@@ -27,22 +26,22 @@ const ViewIssuedBookPage = () => {
   };
 
   const handleReturnBook = async (issuedBookId) => {
+    console.log("🧪 Returning Book with issuedBookId:", issuedBookId);
     try {
       const response = await axios.post("http://localhost:3001/books/return-book", {
         issuedBookId,
       });
       alert(response.data);
-      getIssuedBooks(); // refresh the list
+      getIssuedBooks(); // Refresh list after return
     } catch (error) {
       console.error("❌ Return failed:", error);
       alert("❌ Return failed: " + (error.response?.data?.message || error.message));
     }
   };
-  
 
   const filteredBooks = issuedBooks
     .filter((entry) =>
-      !searchTerm || (entry.book?.book?.toLowerCase().includes(searchTerm.toLowerCase()))
+      !searchTerm || entry.book?.book?.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((entry) =>
       subjectFilter
@@ -104,10 +103,9 @@ const ViewIssuedBookPage = () => {
                   <td>{entry.employeeId || "—"}</td>
                   <td>{entry.issuedDate ? new Date(entry.issuedDate).toLocaleDateString() : "—"}</td>
                   <td>
-                  <button onClick={() => handleReturnBook(entry.id)}>
-                    🔁 Return Book
-                  </button>
-
+                    <button onClick={() => handleReturnBook(entry.id)}>
+                      🔁 Return Book
+                    </button>
                   </td>
                 </tr>
               ))

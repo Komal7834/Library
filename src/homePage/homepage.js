@@ -63,6 +63,12 @@ const HomePage = () => {
         </Slider>
       </div>
 
+      
+  {/* 👇 This is your new image section */}
+  <div className="image-section">
+    <img src="/libtable1.jpg" alt="Library Theme" className="section-image" />
+  </div>
+
       <div className="login-container">
         <div className="glass-box">
           <h1 className="title">Library Management System</h1>

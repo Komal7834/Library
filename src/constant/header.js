@@ -23,31 +23,7 @@ const Header = () => {
 
       </div>
 
-      <nav className="nav">
-        <div className="dropdown">
-          <button className="dropbtn">Books</button>
-          <div className="dropdown-content">
-            <a href="/viewbooks?subject=Production and planning">
-              Production and Planning
-            </a>
-            <a href="/viewbooks?subject=Sales and Marketing">
-              Sales and Marketing
-            </a>
-            <a href="/viewbooks?subject=Accounts">Accounts</a>
-            <a href="/viewbooks?subject=Human resource">Human Resource</a>
-            <a href="/viewbooks?subject=Information technology">
-              Information Technology
-            </a>
-            <a href="/viewbooks?subject=Dispatch">Dispatch</a>
-            <a href="/viewbooks?subject=Others">Others</a>
-          </div>
-        </div>
-
-        <div>
-          <button className="dropbtn">Logout</button>
-          <div className="dropdown-content"></div>
-        </div>
-      </nav>
+     
     </header>
   );
 };

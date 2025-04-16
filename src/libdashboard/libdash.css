@@ -4,20 +4,24 @@
     justify-content: center;
     align-items: center;
     height: 140vh;
-    background: url("/public/background.jpg") no-repeat center center/cover; /* Full-screen background */
-    padding: 20px;
+   
+  background-image: url("/public/libtable2.jpg");
+  background-size:  cover;
+  background-position: center;
+  /* background-repeat: no-repeat;  */
+   /* padding: 20px; */
 }
 
 /* Dashboard Box */
 .dash-box {
     background: linear-gradient(145deg, #ffd700, #ffcc00); /* Luxurious Gold Gradient */
-    padding: 40px;
+    padding: 35px;
     border-radius: 15px;
     box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.6); /* Golden Glow */
     text-align: center;
     margin-left: 250px;
     width: 450px;
-    height: 650px;
+    height: 500px;
     border: 2px solid #111;
     animation: fadeIn 1s ease-in-out;
 }

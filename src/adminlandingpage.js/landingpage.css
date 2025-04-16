@@ -5,7 +5,12 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background: url("/public/background.jpg");
+ 
+  
+  background-image: url("/public/libtable2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .landing-box1 {
